@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Election Platform Full-stack project met Java Spring Boot, Vue.js, JWT authentication en Docker deployment">
+    <title>Election Platform Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1 class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Mijn Portfolio</a></h1>
+                <ul class="nav-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#projects">Projecten</a></li>
+                    <li><a href="index.html#about">Over Mij</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-header">
+            <div class="container">
+                <a href="index.html#projects" class="back-link">← Terug naar projecten</a>
+                <h1>Election Platform</h1>
+                <div class="project-meta">
+                    <span><strong>Rol:</strong> Full-Stack Developer (Security & Deployment focus)</span>
+                    <span><strong>Opleiding:</strong> HBO-ICT Software Engineering</span>
+                    <span><strong>Jaar / Blok:</strong> Jaar 2 Blok 1</span>
+                    <span><strong>Type:</strong> Teamproject (SCRUM)</span>
+                    <span><strong>Frontend:</strong> Vue.js</span>
+                    <span><strong>Backend:</strong> Java (Spring Boot)</span>
+                    <span><strong>Security:</strong> JWT Authentication</span>
+                    <span><strong>Deployment:</strong> Docker + Render</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-content">
+            <div class="container">
+                <img src="Project-5-foto.png" 
+                     alt="Election Platform Verkiezingsplatform met Vue.js frontend en Java Spring Boot backend" 
+                     class="project-hero-image">
+
+                <div class="content-section">
+                    <h2>Context van het Project</h2>
+                    <p>
+                        Het doel van dit project was het bouwen van een verkiezingsplatform waarmee gebruikers 
+                        verkiezingsdata konden bekijken, politieke informatie konden lezen, en (na inloggen) 
+                        interactie konden hebben. Dit project was onderdeel van Jaar 2, Blok 1 (Semester 3) 
+                        van de HBO-ICT opleiding en viel onder het Project Election.
+                    </p>
+                    <p>
+                        De applicatie bestond uit een Vue.js frontend, een Java Spring Boot backend, met 
+                        beveiligde communicatie via JWT tokens. Het was een teamproject waarbij we volgens 
+                        SCRUM-methodologie werkten, waarbij ik me focuste op security en deployment.
+                    </p>
+                    <p>
+                        De applicatie moest gedeployed worden en publiek toegankelijk zijn. Dit betekende 
+                        dat ik niet alleen moest zorgen voor werkende functionaliteit, maar ook voor een 
+                        stabiele, beveiligde en beschikbare applicatie die 24/7 online toegankelijk was.
+                    </p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Mijn Concrete Bijdrage</h2>
+                    
+                    <h3>Security & Authenticatie (kernbijdrage)</h3>
+                    <p>
+                        Mijn belangrijkste bijdrage lag bij security en authenticatie. Ik heb het volledige 
+                        login- en registratiesysteem geïmplementeerd met JWT-authenticatie. Dit was mijn 
+                        eerste ervaring met enterprise-achtige security implementatie.
+                    </p>
+                    <p>
+                        <strong>JWT-authenticatie opgezet in de backend:</strong> Ik implementeerde JWT 
+                        (JSON Web Token) authenticatie in de Java Spring Boot backend. Dit omvatte:
+                    </p>
+                    <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 2rem;">
+                        <li><strong>Token generation bij login:</strong> Wanneer een gebruiker succesvol 
+                        inlogde, genereerde het systeem een JWT token met user claims. Dit token bevatte 
+                        informatie over de gebruiker en werd gebruikt voor authenticatie bij volgende requests.</li>
+                        <li><strong>Token validatie via filters:</strong> Ik implementeerde Spring Security 
+                        filters die JWT tokens valideerden bij elke request. Deze filters controleerden of 
+                        het token geldig was, niet verlopen was, en of de gebruiker toegang had tot de 
+                        gevraagde endpoint.</li>
+                        <li><strong>Beveiliging van API-endpoints:</strong> Ik beveiligde specifieke endpoints 
+                        zodat alleen geauthenticeerde gebruikers er toegang toe hadden. Dit betekende dat 
+                        bepaalde functionaliteit, zoals het plaatsen van reacties of het bewerken van profielen, 
+                        alleen beschikbaar was na succesvolle authenticatie.</li>
+                    </ul>
+                    <p>
+                        <strong>Frontend en backend veilig laten communiceren:</strong> Ik zorgde ervoor dat 
+                        de Vue.js frontend en Java backend veilig met elkaar communiceerden via JWT headers. 
+                        Wanneer een gebruiker inlogde, ontving de frontend een JWT token dat werd opgeslagen. 
+                        Bij elke volgende request naar beveiligde endpoints werd dit token meegestuurd in de 
+                        Authorization header. De backend valideerde dit token voordat de request werd verwerkt.
+                    </p>
+                    <p>
+                        <strong>Correct scheiden van publieke en beveiligde endpoints:</strong> Ik was 
+                        verantwoordelijk voor het correct scheiden van publieke endpoints (zoals het bekijken 
+                        van verkiezingsdata en politiek nieuws) en beveiligde endpoints (zoals het plaatsen 
+                        van reacties of het bewerken van profielen). Publieke endpoints waren toegankelijk 
+                        zonder authenticatie, terwijl beveiligde endpoints JWT validatie vereisten.
+                    </p>
+
+                    <h3>Backend (Java / Spring Boot)</h3>
+                    <p>
+                        Ik heb backend-logica geschreven voor authenticatie, gebruikersbeheer en API-koppelingen. 
+                        Dit omvatte het opzetten van controllers en services volgens een gelaagde architectuur.
+                    </p>
+                    <p>
+                        <strong>Controllers en services opgezet:</strong> Ik bouwde controllers die HTTP 
+                        requests ontvingen en services die de business logic bevatten. Deze gelaagde structuur 
+                        zorgde voor scheiding van concerns: controllers handelden HTTP-specifieke zaken af, 
+                        terwijl services de business logica bevatten. Dit maakte de code modulair en testbaar.
+                    </p>
+                    <p>
+                        <strong>Meewerken aan databewerking en veilige datatoegang:</strong> Ik werkte aan 
+                        databewerking en zorgde voor veilige datatoegang. Dit betekende dat ik database 
+                        queries schreef die gebruikersinformatie ophaalden en opsloegen, terwijl ik ervoor 
+                        zorgde dat gevoelige data niet onnodig werd blootgesteld. Ik implementeerde ook 
+                        input validatie om te voorkomen dat ongeldige of kwaadaardige data in de database 
+                        terechtkwam.
+                    </p>
+                    <p>
+                        <strong>Backend geschikt maken voor containerized deployment:</strong> Ik maakte de 
+                        backend geschikt voor containerized deployment met Docker. Dit betekende dat ik 
+                        configuratie aanpaste zodat de applicatie in een container kon draaien, environment 
+                        variables gebruikte voor configuratie, en ervoor zorgde dat de applicatie goed 
+                        startte in een containeromgeving.
+                    </p>
+
+                    <h3>Frontend (Vue.js)</h3>
+                    <p>
+                        Aan de frontend-kant heb ik de hoofdpagina van de applicatie ontworpen en gebouwd, 
+                        en politiek nieuws opgehaald via een externe API en dynamisch weergegeven.
+                    </p>
+                    <p>
+                        <strong>Hoofdpagina ontworpen en gebouwd:</strong> Ik bouwde de hoofdpagina die 
+                        als startpunt diende voor gebruikers. Deze pagina toonde belangrijke informatie zoals 
+                        verkiezingsdata, politiek nieuws, en navigatie naar andere delen van de applicatie. 
+                        Ik gebruikte Vue.js componenten om de pagina modulair op te bouwen.
+                    </p>
+                    <p>
+                        <strong>Politiek nieuws ophalen en dynamisch weergegeven:</strong> Ik implementeerde 
+                        functionaliteit om politiek nieuws op te halen via een externe API en dit dynamisch 
+                        weer te geven in de applicatie. Dit betekende dat ik API calls maakte vanuit de 
+                        Vue.js frontend, de data verwerkte, en deze presenteerde aan gebruikers in een 
+                        gebruiksvriendelijke interface.
+                    </p>
+                    <p>
+                        <strong>Vue-concepten toegepast:</strong> Ik paste Vue-concepten toe zoals:
+                    </p>
+                    <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 2rem;">
+                        <li><strong>Component-structuur:</strong> Ik bouwde herbruikbare componenten voor 
+                        verschillende delen van de interface, zoals nieuws items, gebruikersprofielen, en 
+                        navigatie-elementen.</li>
+                        <li><strong>API-calls:</strong> Ik maakte API calls naar de backend en externe 
+                        APIs om data op te halen en te versturen. Ik gebruikte async/await voor het afhandelen 
+                        van asynchrone operaties.</li>
+                        <li><strong>State-afhandeling voor gebruikersstatus:</strong> Ik beheerde de state 
+                        van de applicatie, met name de gebruikersstatus (ingelogd/niet ingelogd). Wanneer 
+                        een gebruiker inlogde, werd de state bijgewerkt en de UI aangepast om de juiste 
+                        functionaliteit te tonen.</li>
+                    </ul>
+                    <p>
+                        <strong>Frontend-logica correct laten samenwerken met JWT-beveiligde endpoints:</strong> 
+                        Ik zorgde ervoor dat de frontend-logica correct samenwerkte met JWT-beveiligde 
+                        backend-endpoints. Dit betekende dat ik JWT tokens opsloeg na login, deze tokens 
+                        meegestuurd bij requests naar beveiligde endpoints, en de UI aanpaste op basis van 
+                        authenticatiestatus.
+                    </p>
+
+                    <h3>Deployment & Infrastructuur</h3>
+                    <p>
+                        Een belangrijk onderdeel van mijn bijdrage was deployment en infrastructuur. Ik heb 
+                        de applicatie gedeployed met Docker en geschikt gemaakt voor Render.
+                    </p>
+                    <p>
+                        <strong>Applicatie gedeployed met Docker:</strong> Ik containerized zowel de frontend 
+                        als backend met Docker. Dit betekende dat ik Dockerfiles schreef die de applicaties 
+                        pakketten, dependencies installeerden, en de applicaties startten. Docker zorgde 
+                        ervoor dat de applicatie reproduceerbaar was en op verschillende omgevingen kon 
+                        draaien.
+                    </p>
+                    <p>
+                        <strong>Zowel frontend als backend geschikt maken voor Render:</strong> Ik maakte 
+                        beide delen van de applicatie geschikt voor deployment op Render, een cloud hosting 
+                        platform. Dit betekende dat ik configuratie aanpaste zodat de applicaties correct 
+                        startten op Render, environment variables gebruikte voor configuratie, en ervoor 
+                        zorgde dat de frontend en backend correct met elkaar communiceerden via Render's 
+                        netwerk.
+                    </p>
+                    <p>
+                        <strong>Dockerfiles en configuratie opgezet:</strong> Ik schreef Dockerfiles en 
+                        configuratie zodat de applicatie reproduceerbaar was en online toegankelijk bleef. 
+                        Dit betekende dat ik ervoor zorgde dat de applicatie automatisch startte wanneer 
+                        de container draaide, gezondheidschecks implementeerde, en logging configureerde 
+                        voor monitoring.
+                    </p>
+                    <p>
+                        <strong>Praktische ervaring met cloud deployment en containerization:</strong> Dit 
+                        gaf me praktische ervaring met cloud deployment en containerization. Ik leerde hoe 
+                        je applicaties containerized, hoe je deze deployt naar cloud platforms, en hoe je 
+                        ervoor zorgt dat applicaties stabiel en beschikbaar blijven. Dit was een belangrijke 
+                        stap in mijn ontwikkeling als software engineer.
+                    </p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Resultaat</h2>
+                    <p>
+                        Het platform draaide succesvol als live webapplicatie. Gebruikers konden registreren 
+                        en inloggen, beveiligde functionaliteit gebruiken, en actuele politieke informatie 
+                        bekijken. De applicatie was publiek toegankelijk en voldeed aan de kernvereisten 
+                        van security, full-stack integratie en deployment.
+                    </p>
+                    <p>
+                        <strong>Functionaliteit:</strong> Het platform bood volledige functionaliteit: 
+                        gebruikers konden accounts aanmaken, inloggen met JWT-authenticatie, verkiezingsdata 
+                        bekijken, politiek nieuws lezen, en (na authenticatie) interactie hebben met het 
+                        platform. Alle functionaliteit was beveiligd waar nodig en publiek toegankelijk 
+                        waar mogelijk.
+                    </p>
+                    <p>
+                        <strong>Security:</strong> De applicatie implementeerde enterprise-achtige security 
+                        met JWT-authenticatie. Gebruikers konden veilig inloggen, en beveiligde endpoints 
+                        waren beschermd tegen ongeautoriseerde toegang. Dit toonde aan dat ik in staat was 
+                        om security te implementeren op een professioneel niveau.
+                    </p>
+                    <p>
+                        <strong>Deployment:</strong> De applicatie was succesvol gedeployed en bleef online 
+                        toegankelijk. Zowel frontend als backend draaiden stabiel in containers op Render, 
+                        wat toonde dat ik in staat was om applicaties productierijp te maken en te deployen.
+                    </p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Wat ik heb Geleerd</h2>
+                    <p>
+                        Dit project was mijn eerste ervaring met enterprise-achtige security implementatie 
+                        met JWT. Ik leerde hoe authenticatie en autorisatie werken in praktische applicaties, 
+                        en hoe je security implementeert die niet alleen werkt, maar ook schaalbaar en 
+                        onderhoudbaar is.
+                    </p>
+                    <p>
+                        <strong>Begrip van authenticatie & autorisatie:</strong> Ik ontwikkelde diepgaand 
+                        begrip van authenticatie (wie ben je?) en autorisatie (wat mag je?). Ik leerde hoe 
+                        JWT tokens werken, hoe je ze genereert, valideert en gebruikt, en hoe je endpoints 
+                        beveiligt op basis van authenticatiestatus.
+                    </p>
+                    <p>
+                        <strong>Frontend-backend security flows:</strong> Ik leerde hoe security flows werken 
+                        tussen frontend en backend. Ik begrijp nu hoe tokens worden uitgewisseld, hoe ze 
+                        worden opgeslagen, en hoe ze worden gebruikt voor authenticatie bij requests. Dit 
+                        begrip is essentieel voor het bouwen van beveiligde applicaties.
+                    </p>
+                    <p>
+                        <strong>Deployment pipelines:</strong> Ik leerde hoe deployment pipelines werken 
+                        en hoe je applicaties productierijp maakt. Ik begrijp nu hoe je applicaties 
+                        containerized, hoe je ze deployt naar cloud platforms, en hoe je ervoor zorgt dat 
+                        ze stabiel en beschikbaar blijven.
+                    </p>
+                    <p>
+                        <strong>Grote stappen in Java, Vue.js en cloud-infrastructuur:</strong> Dit project 
+                        betekende grote stappen voorwaarts in mijn vaardigheden met Java, Vue.js en 
+                        cloud-infrastructuur. Ik leerde niet alleen de technologieën kennen, maar ook hoe 
+                        je ze inzet voor realistische, productierijpe applicaties.
+                    </p>
+                    <p>
+                        <strong>Hoe je een applicatie productierijp maakt:</strong> Ik leerde hoe belangrijk 
+                        het is om niet alleen werkende code te schrijven, maar ook om te denken over deployment, 
+                        security, monitoring en onderhoudbaarheid. Een applicatie die lokaal werkt is niet 
+                        hetzelfde als een applicatie die productierijp is.
+                    </p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Gebruikte Skills & Technologieën</h2>
+                    <p>Bij dit project heb ik de volgende skills en technologieën gebruikt:</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Java (Spring Boot)</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">JWT Authentication</span>
+                        <span class="skill-tag">Spring Security</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Render (Cloud Hosting)</span>
+                        <span class="skill-tag">Full-Stack Development</span>
+                        <span class="skill-tag">Security Fundamentals</span>
+                        <span class="skill-tag">Containerization</span>
+                        <span class="skill-tag">Cloud Deployment</span>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Project Afbeeldingen</h2>
+                    <div class="project-images">
+                        <img src="Project-5-foto.png" 
+                             alt="Election Platform Screenshot van het verkiezingsplatform">
+                        <div style="display: flex; align-items: center; justify-content: center; min-height: 200px; background-color: var(--dark-card); border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem;">
+                            <p style="color: var(--text-secondary); font-size: 1.1rem; text-align: center;">
+                                Homepage met politiek nieuws screenshot volgt
+                            </p>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; min-height: 200px; background-color: var(--dark-card); border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem;">
+                            <p style="color: var(--text-secondary); font-size: 1.1rem; text-align: center;">
+                                Login / registratie flow volgt
+                            </p>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; min-height: 200px; background-color: var(--dark-card); border-radius: 8px; padding: 2rem;">
+                            <p style="color: var(--text-secondary); font-size: 1.1rem; text-align: center;">
+                                Deployment overzicht volgt
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Technische Bijdrage Samenvatting</h2>
+                    <p>
+                        Mijn technische bijdrage aan dit project concentreerde zich op drie hoofdgebieden:
+                    </p>
+                    <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 2rem;">
+                        <li><strong>Security & Authenticatie:</strong> Volledige implementatie van JWT-authenticatie 
+                        in Spring Boot backend, inclusief token generation, validatie en beveiliging van endpoints.</li>
+                        <li><strong>Full-Stack Integratie:</strong> Opzetten van veilige communicatie tussen 
+                        Vue.js frontend en Java backend via JWT headers, met correcte scheiding van publieke 
+                        en beveiligde endpoints.</li>
+                        <li><strong>Deployment & Infrastructuur:</strong> Containerization met Docker en 
+                        succesvolle deployment naar Render, waarbij zowel frontend als backend stabiel en 
+                        publiek toegankelijk draaien.</li>
+                        <li><strong>Frontend Development:</strong> Bouwen van hoofdpagina en implementatie 
+                        van API-integraties voor politiek nieuws, met correcte state management en JWT-integratie.</li>
+                        <li><strong>Backend Development:</strong> Opzetten van gelaagde architectuur met 
+                        controllers en services, implementatie van authenticatie-logica en databewerking.</li>
+                        <li><strong>Productierijp maken:</strong> Zorgen dat de applicatie niet alleen 
+                        functioneel was, maar ook stabiel, beveiligd en beschikbaar in een productie-omgeving.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mijn Portfolio. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+</body>
+</html>
